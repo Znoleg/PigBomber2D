@@ -2,8 +2,8 @@
 
 ## Инструкция
 
-~~*Чтобы сменить управление поменяйте в инспекторе у игрового объекта Player поле Input Reciever класса Player Movement 
-Joystick Input - для мобильных устройств, Keyboard Input - для пк.*~~
+___Чтобы сменить управление поменяйте в инспекторе у игрового объекта Player поле Input Reciever класса Player Movement 
+Joystick Input - для мобильных устройств, Keyboard Input - для пк.___
 
 ## Комментарий
 
