@@ -12,7 +12,9 @@ public class CharacterDeath : MonoBehaviour, IHitable
 
     public void GetHit()
     {
-        if (_hited) return;
+        if (_hited) return; // I had to write because you could get twice the damage
+        // from different bomb fires. Turning off the collider would work too 
+        // or come up with something more interesting
         _hited = true;
         Ghost ghostInstance = Instantiate(_ghostPrefab);
         ghostInstance.transform.position = transform.position;

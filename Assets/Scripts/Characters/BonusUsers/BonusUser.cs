@@ -2,7 +2,7 @@
 
 public abstract class BonusUser : MonoBehaviour
 {
-    public abstract void InteractWithBonus(Bonus bonus);
+    protected abstract void InteractWithBonus(Bonus bonus);
 
     private void OnTriggerEnter2D(Collider2D collision)
     {

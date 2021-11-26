@@ -26,7 +26,7 @@ public class EnemyMovement : MovementBase
     private FloatRange _plantCooldown;
 
     private AIPath _aiPath;
-    private List<Vector2> _freePositions;
+    private List<Vector2> _freeCellPositions;
     private Vector2 _prevPosition = Vector2.zero;
 
     public override MoveDirection Move(IMovementStats movementStats)
@@ -44,14 +44,14 @@ public class EnemyMovement : MovementBase
 
     private void StartBombCountdown()
     {
-        float time = Random.Range(_plantCooldown.min, _plantCooldown.max);
-        Invoke(nameof(InvokeBombSignal), time);
-        Invoke(nameof(StartBombCountdown), time);
+        float cooldownTime = Random.Range(_plantCooldown.min, _plantCooldown.max);
+        Invoke(nameof(InvokeBombSignal), cooldownTime);
+        Invoke(nameof(StartBombCountdown), cooldownTime);
     }
 
     private Vector2 GetNewTarget()
     {
-        return _freePositions[Random.Range(0, _freePositions.Count)];
+        return _freeCellPositions[Random.Range(0, _freeCellPositions.Count)];
     }
 
     private void Awake()
@@ -61,7 +61,7 @@ public class EnemyMovement : MovementBase
 
     private void Start()
     {
-       _freePositions = _gameGrid.FreePositions;
+       _freeCellPositions = _gameGrid.FreePositions;
         _aiTarget.position = GetNewTarget();
         if (_canPlantBombs) StartBombCountdown();
     }

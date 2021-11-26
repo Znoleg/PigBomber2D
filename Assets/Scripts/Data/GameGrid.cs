@@ -73,7 +73,7 @@ public class GameGrid : MonoBehaviour
             overlappedCollider.transform.TryGetComponent(out obstacle);
     }
 
-    private void Awake()
+    private void CalculateCells()
     {
         _cellSize = new Vector2(_cellHeight, _cellHeight);
         Vector2 currentPosition = transform.position;
@@ -90,33 +90,29 @@ public class GameGrid : MonoBehaviour
                     currentPosition.y);
                 _cellPostitions.Add(cellPosition);
             }
-            
+
             currentPosition += new Vector2(_additionalXToY,
                 _cellHeight + _cellGap.y);
         }
     }
 
-    private void OnDrawGizmos()
+    private void Awake()
+    {
+        CalculateCells();
+    }
+
+    private void OnValidate()
+    {
+        CalculateCells();
+    }
+
+    private void OnDrawGizmosSelected()
     {
         if (_movementSetting == null) return;
         Gizmos.color = Color.red;
-        Vector2 currentPosition = transform.position;
-        Vector2 cellSize = new Vector2(_cellHeight, _cellHeight);
-        float additionalXToY = _movementSetting
-            .GetAdditionalMovement(new Vector2(0f, _cellHeight)).x;
-        for (int i = 0; i < _height; i++)
+        foreach (Vector2 cellPosition in _cellPostitions)
         {
-            for (int j = 0; j < _width; j++)
-            {
-                float offsetFromStart = j * _cellHeight;
-                float gapFromStart = j * _cellGap.x;
-                Vector2 cellPosition = new Vector2(
-                    currentPosition.x + offsetFromStart + gapFromStart,
-                    currentPosition.y);
-                Gizmos.DrawWireCube(cellPosition, cellSize);
-            }
-            currentPosition += new Vector2(additionalXToY,
-                _cellHeight + _cellGap.y);
+            Gizmos.DrawWireCube(cellPosition, _cellSize);
         }
     }
 }

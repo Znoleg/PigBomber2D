@@ -3,7 +3,7 @@
 /// </summary>
 public class BonusDestroyer : BonusUser
 {
-    public override void InteractWithBonus(Bonus bonus)
+    protected override void InteractWithBonus(Bonus bonus)
     {
         bonus.Destroy();
     }

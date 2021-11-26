@@ -17,7 +17,7 @@ public class MovementSettings : ScriptableObject
     [Header("Rotation relative to (0; 1)")]
     [SerializeField][Range(0f, 89f)]
     private float _yCoordinateRotation
-        = 30f;
+        = 7f;
 
     public Vector2 GetAdditionalMovement(Vector2 deltaMovement)
     {

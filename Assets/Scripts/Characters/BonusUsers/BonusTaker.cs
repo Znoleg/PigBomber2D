@@ -5,7 +5,7 @@ public class BonusTaker : BonusUser
 {
     private ChangableStats _changableStats;
 
-    public override void InteractWithBonus(Bonus bonus)
+    protected override void InteractWithBonus(Bonus bonus)
     {
         _changableStats.TryUpgradeStat(bonus.ChangableStat,
             bonus.ChangeValue);

@@ -95,5 +95,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bde71a3fa8fa1f841a3341f67e3405cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _gameGrid: {fileID: 0}
+  _gameGrid: {fileID: 3791077412541204871, guid: 6ffcef37102685c41bfb01b365a9c43a, type: 3}
   _firePrefab: {fileID: 3433688941818910874, guid: 337e013a63f2d044498d7774a7e1251a, type: 3}

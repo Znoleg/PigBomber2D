@@ -17,8 +17,8 @@ public class Bomb : MonoBehaviour
 
     public void StartCountdown(float bombCountdown, uint bombRange)
     {
-        Invoke(nameof(Blow), bombCountdown);
         _bombRange = bombRange;
+        Invoke(nameof(Blow), bombCountdown);
     }
 
     private void Blow()
@@ -87,10 +87,5 @@ public class Bomb : MonoBehaviour
         }
         
         return cells;
-    }
-
-    private void Awake()
-    {
-        _gameGrid = GameObject.Find("Game Grid").GetComponent<GameGrid>();
     }
 }

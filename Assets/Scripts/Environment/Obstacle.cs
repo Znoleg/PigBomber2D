@@ -10,7 +10,7 @@ public abstract class Obstacle : MonoBehaviour
     {
         if (!IsHitable)
             throw new InvalidOperationException($"Can't " +
-                $"get {nameof(IHitable)} of unhitalbe {GetType().Name} " +
+                $"get {nameof(IHitable)} of unhitable {GetType().Name} " +
                 $"{gameObject.name}");
         return Hitable;
     }
