@@ -5,13 +5,13 @@ using UnityEngine;
 
 public class GameGrid : MonoBehaviour
 {
-    [SerializeField]
+    [SerializeField] [Min(0)]
     private int _height;
 
-    [SerializeField]
+    [SerializeField] [Min(0)]
     private int _width;
 
-    [SerializeField]
+    [SerializeField] [Min(0f)]
     private float _cellHeight;
 
     [SerializeField]
